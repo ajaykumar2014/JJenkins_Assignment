@@ -10,10 +10,14 @@ pipeline {
                 '''
             }
         }
-
+        stage ('Test') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
+                sh 'mvn -Dmaven.test.failure.ignore=true build'
             }
             post {
                 success {
