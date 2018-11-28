@@ -24,7 +24,7 @@ pipeline {
          
         stage ('Deploy') {
             steps {
-                sh 'java -jar target/dockerJenkins-1.0-SNAPSHOT.jar'
+                sh 'java -Dserver.port=9898 -jar target/dockerJenkins-1.0-SNAPSHOT.jar' 
             }
             
         } 
